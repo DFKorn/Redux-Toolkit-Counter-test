@@ -3,6 +3,6 @@
 ### Technologies:
 React + Redux-Toolkit + TypeScript + Vite
 
-### Live - [Counter]()
+### Live - [Counter](https://redux-toolkit-counter-test.netlify.app/)
 
 
