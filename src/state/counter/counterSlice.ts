@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { AppDisptatch } from "../store";
 
 interface CounterState{
     value: number
@@ -43,6 +44,16 @@ export const incrementAsync = createAsyncThunk(
         return amount
     }
 )
+
+
+// Function to test middleware
+export const addDouble = (amount:number) => {
+    return (dispatch: AppDisptatch) => {
+        dispatch(counterSlice.actions.incrementByAmount(amount));
+        dispatch(counterSlice.actions.decrement())
+    }
+}
+
 
 export const {increment, decrement, incrementByAmount, decrementByAmount} = counterSlice.actions
 
