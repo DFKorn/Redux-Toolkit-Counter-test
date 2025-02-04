@@ -9,7 +9,7 @@ export const postApiSlice = createApi({
     endpoints: (builder) => {
         return {
             getPosts: builder.query<Post[], {limit: number, offset: number}>({
-                query: ({limit, offset}) => `/posts_limit=${limit}&offset=${offset}`
+                query: ({limit, offset}) => `/posts?_limit=${limit}&_offset=${offset}`
             })
         }
     }
