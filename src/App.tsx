@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Counter from './components/Counter'
+import PostsList from './components/PostsList'
 
 function App() {
   //const [count, setCount] = useState(0)
@@ -21,6 +22,7 @@ function App() {
       <div className="card">
         <h2>React + Redux Toolkit</h2>
         <Counter />
+        <PostsList />
       </div>
       
     </>

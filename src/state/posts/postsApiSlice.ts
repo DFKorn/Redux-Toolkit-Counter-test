@@ -13,3 +13,5 @@ export const postApiSlice = createApi({
         }
     }
 })
+
+export const {useGetPostsQuery} = postApiSlice
