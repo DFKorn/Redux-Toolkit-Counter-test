@@ -10,9 +10,16 @@ export const postApiSlice = createApi({
         return {
             getPosts: builder.query<Post[], {limit: number, offset: number}>({
                 query: ({limit, offset}) => `/posts?_limit=${limit}&_offset=${offset}`
+            }),
+            createPost: builder.mutation<Post, Omit<Post, 'id'>>({
+                query: (post) => ({
+                    url: '/posts',
+                    method: "POST",
+                    body: post
+                })
             })
         }
     }
 })
 
-export const {useGetPostsQuery} = postApiSlice
+export const {useGetPostsQuery, useCreatePostMutation} = postApiSlice

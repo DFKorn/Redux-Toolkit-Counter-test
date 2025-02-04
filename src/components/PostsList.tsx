@@ -1,7 +1,9 @@
-import { useGetPostsQuery } from "../state/posts/postsApiSlice"
+import { useCreatePostMutation, useGetPostsQuery } from "../state/posts/postsApiSlice"
 
 const PostsList = () => {
     const {data: posts, isLoading, isError} = useGetPostsQuery({limit:10, offset:0})
+
+    const [createPostMutation, {isLoading: isCreatingPost}] = useCreatePostMutation()
 
     if(isLoading) {
         return <div>Loading...</div>
@@ -13,6 +15,12 @@ const PostsList = () => {
 
     return (
     <div>
+        <button onClick={() => {
+            const post = { title: 'My new post'};
+            createPostMutation(post)
+        }}>
+            {isCreatingPost ? 'Creating...' : 'Create Post'}
+        </button>
         <ul>
             {posts?.map((post) => {
                 return <li key={post.id}>{post.title}</li>
