@@ -1,7 +1,7 @@
 import { useGetPostsQuery } from "../state/posts/postsApiSlice"
 
 const PostsList = () => {
-    const {data: posts, isLoading, isError} = useGetPostsQuery({})
+    const {data: posts, isLoading, isError} = useGetPostsQuery({limit:10, offset:0})
 
     if(isLoading) {
         return <div>Loading...</div>

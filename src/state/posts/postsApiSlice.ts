@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { Post } from "../../types/Posts";
 
 export const postApiSlice = createApi({
     reducerPath: 'posts',
@@ -7,8 +8,8 @@ export const postApiSlice = createApi({
     }),
     endpoints: (builder) => {
         return {
-            getPosts: builder.query({
-                query: () => "/posts"
+            getPosts: builder.query<Post[], {limit: number, offset: number}>({
+                query: ({limit, offset}) => `/posts_limit=${limit}&offset=${offset}`
             })
         }
     }
